@@ -9,11 +9,11 @@ function App() {
         <NaveBar></NaveBar>
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} bg={"red"}>
+        <GridItem area={"aside"} >
           Aside
         </GridItem>
       </Show>
-      <GridItem area={"main"} bg={"orange"}>
+      <GridItem area={"main"} >
         main
       </GridItem>
     </Grid>
