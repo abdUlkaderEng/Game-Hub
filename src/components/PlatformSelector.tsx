@@ -2,7 +2,6 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BiChevronDown } from "react-icons/bi";
 import  { Platform } from "../hooks/useGames";
 import usePlatforms from "../hooks/usePlatforms";
-import { useState } from "react";
 import GenreListSkelton from "./GenreListSkelton";
 interface Props {
   onSelectPlatform: (platform:Platform ) => void;
