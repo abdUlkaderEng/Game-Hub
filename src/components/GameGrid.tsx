@@ -6,10 +6,10 @@ import GameCardContainer from "./GameCardContainer";
 import { Genre } from "../hooks/useGenres";
 import { Platform } from "../hooks/useGames";
 import { GameQuery } from "../App";
-interface props{
-  gameQuery : GameQuery 
+interface props {
+  gameQuery: GameQuery;
 }
-const GameGrid = ({gameQuery} :props) => {
+const GameGrid = ({ gameQuery }: props) => {
   const { data, error, isloading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
@@ -19,12 +19,12 @@ const GameGrid = ({gameQuery} :props) => {
         {isloading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>
-              <GameCardSkeleton  />
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
           <GameCardContainer key={game.id}>
-            <GameCard  game={game} />
+            <GameCard game={game} />
           </GameCardContainer>
         ))}
       </SimpleGrid>
