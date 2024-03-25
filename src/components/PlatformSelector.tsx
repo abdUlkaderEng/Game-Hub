@@ -8,7 +8,7 @@ interface Props {
   selectedPlatform: Platform | null;
 }
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
-  const { data, error, isloading } = usePlatforms();
+  const { data, error, isLoading } = usePlatforms();
   const textSkeleton = [1, 2, 3, 4];
 
   if (error) return null;
@@ -18,10 +18,10 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         {selectedPlatform?.name || "Platform"}
       </MenuButton>
       <MenuList>
-        {isloading &&
+        {isLoading &&
           textSkeleton.map((skeleton) => <GenreListSkelton key={skeleton} />)}
 
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
             key={platform.id}

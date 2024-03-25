@@ -13,7 +13,7 @@ interface props {
   selectedGenre: Genre | null;
 }
 const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
-  const { data, error, isloading } = useGenres();
+  const { data, error ,isLoading } = useGenres();
   const textSkeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
@@ -22,10 +22,10 @@ const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
         Genres
       </Heading>
       <List>
-        {error && <></>}
-        {isloading &&
+        {/* {error && <></>} */}
+        {isLoading &&
           textSkeleton.map((skeleton) => <GenreListSkelton key={skeleton} />)}
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id}>
             <HStack paddingY={"4px"}>
               <Image
