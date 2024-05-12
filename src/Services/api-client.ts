@@ -5,7 +5,8 @@ params:{key : '18b50523b00647afb6d4adb7e46a12b1'}
 })
 export interface fetchResponse<T>{
     count: number,
-    results: T[]
+    next: string | null;
+    results: T[],
 }
 class APIClient <T>{
     endPoint: string;
