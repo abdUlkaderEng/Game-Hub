@@ -3,6 +3,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { Platform } from "../hooks/usePlatforms";
 import usePlatforms from "../hooks/usePlatforms";
 import GenreListSkelton from "./GenreListSkelton";
+import usePlatform from "../hooks/usePlatform";
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
   selectedPlatformID?: number;
@@ -14,7 +15,7 @@ const PlatformSelector = ({
 }: Props) => {
   const { data, error, isLoading } = usePlatforms();
   const textSkeleton = [1, 2, 3, 4];
-  const platform = data?.results.find((p) => p.id === selectedPlatformID);
+  const platform = usePlatform(selectedPlatformID);
 
   if (error) return null;
   
