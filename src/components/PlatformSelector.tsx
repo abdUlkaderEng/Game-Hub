@@ -5,17 +5,23 @@ import usePlatforms from "../hooks/usePlatforms";
 import GenreListSkelton from "./GenreListSkelton";
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformID?: number;
 }
-const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({
+  onSelectPlatform,
+  selectedPlatformID
+  
+}: Props) => {
   const { data, error, isLoading } = usePlatforms();
   const textSkeleton = [1, 2, 3, 4];
+  const platform = data?.results.find((p) => p.id === selectedPlatformID);
 
   if (error) return null;
+  
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BiChevronDown />}>
-        {selectedPlatform?.name || "Platform"}
+        {platform?.name || "Platform"}
       </MenuButton>
       <MenuList>
         {isLoading &&

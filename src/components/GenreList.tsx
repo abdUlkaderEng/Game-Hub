@@ -10,10 +10,10 @@ import {
 import GenreListSkelton from "./GenreListSkelton";
 interface props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreID?: number;
 }
-const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
-  const { data, error ,isLoading } = useGenres();
+const GenreList = ({ selectedGenreID, onSelectGenre }: props) => {
+  const { data, error, isLoading } = useGenres();
   const textSkeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
@@ -37,7 +37,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
               <Button
                 textAlign="left"
                 whiteSpace="normal"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreID ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
                 fontSize="lg"
