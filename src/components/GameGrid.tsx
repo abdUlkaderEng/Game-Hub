@@ -1,4 +1,13 @@
-import { Box, Button, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import {
+  AbsoluteCenter,
+  Box,
+  Button,
+  Card,
+  Center,
+  SimpleGrid,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
@@ -27,8 +36,7 @@ const GameGrid = ({ gameQuery }: props) => {
       dataLength={fetchedGamescount}
       next={() => fetchNextPage()}
       hasMore={!!hasNextPage}
-      loader={<Spinner />}
-      endMessage={"whoow"}
+      loader={<Spinner marginX={475} marginY={5} size={"xl"} speed="0.7s" />}
     >
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={6} padding={5}>
         {isLoading &&
