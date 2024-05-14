@@ -8,11 +8,11 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import GenreListSkelton from "./GenreListSkelton";
-interface props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreID?: number;
-}
-const GenreList = ({ selectedGenreID, onSelectGenre }: props) => {
+import useGameQueryStore from "../Store";
+
+const GenreList = () => {
+  const setSelectedGenreID = useGameQueryStore(s => s.setGenreID)
+  const selectedGenreID = useGameQueryStore(s => s.gameQuery.genreID)
   const { data, error, isLoading } = useGenres();
   const textSkeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -37,8 +37,8 @@ const GenreList = ({ selectedGenreID, onSelectGenre }: props) => {
               <Button
                 textAlign="left"
                 whiteSpace="normal"
-                fontWeight={genre.id === selectedGenreID ? "bold" : "normal"}
-                onClick={() => onSelectGenre(genre)}
+                fontWeight={genre.id === selectedGenreID  ? "bold" : "normal"}
+                onClick={() => setSelectedGenreID(genre.id)}
                 variant="link"
                 fontSize="lg"
               >
