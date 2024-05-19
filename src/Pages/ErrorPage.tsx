@@ -1,18 +1,16 @@
 import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
+    Alert,
+    AlertIcon,
+    AlertTitle
 } from "@chakra-ui/react";
-import React from "react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
-import Layout from "./Layout";
+import NaveBar from "../components/NaveBar";
 
 const ErrorPage = () => {
   const error = useRouteError();
   return (
     <>
-      <Layout />
+      <NaveBar />
 
       <Alert
         status="error"
@@ -22,8 +20,8 @@ const ErrorPage = () => {
         justifyContent="center"
         textAlign="center"
         height="40vh"
-        width="75vw"
-        marginLeft="12.5vw"
+        width="50vw"
+        marginLeft="25vw"
         borderRadius={20}
         marginY={10}
       >

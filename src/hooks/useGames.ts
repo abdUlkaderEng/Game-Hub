@@ -8,6 +8,8 @@ const apiClient = new APIClient<Game>('/games')
 export interface Game {
     id: number;
     name: string;
+    slug: string;
+    description_raw: string;
     background_image : string
     parent_platforms : {platform : Platform}[]
     metacritic: number,
@@ -24,7 +26,8 @@ const useGames = () => {
           parent_platforms: gameQuery.platformID,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
-          page :pageParam
+          page: pageParam
+
         },
 
       
