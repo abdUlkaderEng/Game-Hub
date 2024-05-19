@@ -1,4 +1,5 @@
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
+import { Genre } from "../entities/Genre";
 import {
   Button,
   HStack,
@@ -11,8 +12,8 @@ import GenreListSkelton from "./GenreListSkelton";
 import useGameQueryStore from "../Store";
 
 const GenreList = () => {
-  const setSelectedGenreID = useGameQueryStore(s => s.setGenreID)
-  const selectedGenreID = useGameQueryStore(s => s.gameQuery.genreID)
+  const setSelectedGenreID = useGameQueryStore((s) => s.setGenreID);
+  const selectedGenreID = useGameQueryStore((s) => s.gameQuery.genreID);
   const { data, error, isLoading } = useGenres();
   const textSkeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -37,7 +38,7 @@ const GenreList = () => {
               <Button
                 textAlign="left"
                 whiteSpace="normal"
-                fontWeight={genre.id === selectedGenreID  ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreID ? "bold" : "normal"}
                 onClick={() => setSelectedGenreID(genre.id)}
                 variant="link"
                 fontSize="lg"
