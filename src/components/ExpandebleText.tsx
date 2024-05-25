@@ -11,11 +11,11 @@ const ExpandebleText = ({ children }: Props) => {
   const summaryText = children.substring(0, 300) + " . . . .";
   return (
     <>
-      <Text>
+      <Text marginY={3} fontSize='xl'>
         {exbanded ? children : summaryText}
         <Button
           marginLeft={2}
-          size="xs"
+          size="sm"
           fontWeight="Bold"
           colorScheme="yellow"
           onClick={() => setExpanded(!exbanded)}

@@ -8,7 +8,7 @@ interface Props{
 const DefintionItem = ({term,children }:Props) => {
   return (
       <Box marginY={3}>
-          <Heading as='dt' fontSize='md' color='gray.600'>{term}</Heading>
+          <Heading as='dt' fontSize='xl' color='gray.600'>{term}</Heading>
           <dd>{children }</dd>
     </Box>
 )
