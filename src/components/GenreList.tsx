@@ -1,5 +1,3 @@
-import useGenres from "../hooks/useGenres";
-import { Genre } from "../entities/Genre";
 import {
   Button,
   HStack,
@@ -8,8 +6,9 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
-import GenreListSkelton from "./GenreListSkelton";
 import useGameQueryStore from "../Store";
+import useGenres from "../hooks/useGenres";
+import GenreListSkelton from "./GenreListSkelton";
 
 const GenreList = () => {
   const setSelectedGenreID = useGameQueryStore((s) => s.setGenreID);
