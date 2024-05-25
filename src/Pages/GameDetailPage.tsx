@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import ExpandebleText from "../components/ExpandebleText";
 import useGame from "../hooks/useGame";
 import GameAttribute from "../components/GameAttribute";
-import GameTrailer from "../components/gameTrailer";
 import GameScreenshots from "../components/GameScreenshots";
+import GameTrailer from "../components/GameTrailer";
 
 const GameDetailPage = () => {
   const { slug } = useParams();
